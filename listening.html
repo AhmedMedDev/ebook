@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"  />
+    <title>MP3 Player</title>
+    <link rel=stylesheet href="audio/style.css" media=all>
+</head>
+
+<body>
+    <div class="player">
+        <div class="cover">
+            <img src="https://imgv2-1-f.scribdassets.com/img/audiobook_square_badge/574948312/original/432x432/815b804b14/1681769205?v=1" alt="">
+        </div>
+        <div class="info">
+            <div class="title">The Summer of Fall</div>
+            <div class="singer">Podcast</div>
+        </div>
+        <div class="volume-box">
+            <span class="volume-down"><i class="material-icons">remove</i></span>
+            <input type="range" class="volume-range" step="1" value="80" min="0" max="100"
+                oninput="music.volume = this.value/100">
+            <span class="volume-up"><i class="material-icons">add</i></span>
+        </div>
+        <div class="btn-box">
+            <i class="fa-solid fa-repeat repeat" onclick="handleRepeat()"></i>
+            <i class="fa-solid fa-heart active" onclick="handleFavorite()"></i>
+            <i class="fa-solid fa-volume-high volume" onclick="handleVolume()"></i>
+        </div>
+        <div class="music-box">
+            <input type="range" step="1" class="seekbar" value="0" min="0" max="100" oninput="handleSeekBar()">
+
+            <audio class="music-element">
+                <source src="https://hosseinghanbari.ir/other/music-player/autumn.mp3" type="audio/mp3">
+            </audio>
+            <span class="current-time">0:0</span><span class="duration">0:0</span>
+            <span class="play" onclick="handlePlay()">
+                <i class="fa-solid fa-play"></i>
+            </span>
+        </div>
+    </div>
+    <script src=audio/app.js></script>
+
+</body>
+
+</html>
