@@ -5,6 +5,9 @@ var seekbar = document.querySelector('.seekbar')
 var currentTime = document.querySelector('.current-time')
 var duration = document.querySelector('.duration')
 
+let startTime = localStorage.getItem('currentTime')
+music.currentTime = startTime ?? 0;
+
 function handlePlay() {
     if (music.paused) {
         music.play();
@@ -12,6 +15,9 @@ function handlePlay() {
         playBtn.innerHTML = '<i class="fa-solid fa-pause"></i>'
     } else {
         music.pause();
+
+        localStorage.setItem('currentTime', music.currentTime)
+
         playBtn.className = 'play'
         playBtn.innerHTML = '<i class="fa-solid fa-play"></i>'
     }
